@@ -1,0 +1,12 @@
+---
+- name: Setup Control Plane Base
+  hosts: default
+  become: yes
+  tasks:
+    - name: Create hello.txt file
+      ansible.builtin.copy:
+        content: "Hello from Packer + Ansible!"
+        dest: "/home/ubuntu/hello.txt"
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
